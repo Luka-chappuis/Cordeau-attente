@@ -11,7 +11,7 @@
 *{box-sizing:border-box}a{text-decoration:none}html,body{margin:0;padding:0}body{background:var(--bg-page);font-family:system-ui,sans-serif}
 /* Page d'attente cordeau.pro : le logo au centre, les 5 artisans en orbite */
 .wait {
-  --size: min(calc(100vh - 140px), calc(100svh - 140px), 680px, 92vw);
+  --size: min(calc(100vh - 180px), calc(100svh - 180px), 680px, 92vw);
   --sat: calc(var(--size) * 0.17);
   --turn: 48s;
   min-height: 100vh;
@@ -79,6 +79,14 @@
   color: var(--navy);
 }
 .wait-logo h1 span { color: var(--orange); }
+.wait-contact { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.wait-ask {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--navy);
+}
 .wait-cta {
   display: inline-flex;
   align-items: center;
@@ -117,7 +125,10 @@
       </div>
     </div>
   </div>
-  <a class="wait-cta" href="mailto:luka.chappuis@cordeau.pro,jules.michel@cordeau.pro?subject=Cordeau%20%E2%80%94%20Offre%20fondateurs">Devenir fondateur</a>
+  <div class="wait-contact">
+    <p class="wait-ask">Vous êtes artisan&nbsp;?</p>
+    <a class="wait-cta" href="mailto:luka.chappuis@cordeau.pro,jules.michel@cordeau.pro?subject=Cordeau%20%E2%80%94%20Contact%20artisan">Contactez-nous</a>
+  </div>
 </main>
 </body>
 </html>
