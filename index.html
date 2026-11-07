@@ -21,7 +21,7 @@
 *{box-sizing:border-box}a{text-decoration:none}html,body{margin:0;padding:0}body{background:var(--bg-page);font-family:system-ui,sans-serif}
 /* Page d'attente cordeau.pro : le logo au centre, les 5 artisans en orbite */
 .wait {
-  --size: min(calc(100vh - 180px), calc(100svh - 180px), 680px, 92vw);
+  --size: min(calc(100vh - 250px), calc(100svh - 250px), 640px, 92vw);
   --sat: calc(var(--size) * 0.17);
   --turn: 48s;
   min-height: 100vh;
@@ -112,6 +112,56 @@
 }
 .wait-cta:hover { background: #12293f; }
 .wait-cta:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+/* Vidéos de présentation */
+.wait-videos { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.wait-vid {
+  display: inline-flex; align-items: center; gap: 12px;
+  min-height: 56px; padding: 8px 22px 8px 8px;
+  border: 0; border-radius: 999px; cursor: pointer;
+  font-family: var(--font-title); text-align: left;
+  box-shadow: 0 6px 18px rgba(26, 58, 92, 0.14);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.wait-vid:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(26, 58, 92, 0.2); }
+.wait-vid:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.wait-vid-play {
+  flex: none; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+}
+.wait-vid-play svg { width: 14px; height: 14px; margin-left: 3px; }
+.wait-vid-txt { display: flex; flex-direction: column; line-height: 1.15; }
+.wait-vid-txt b { font-weight: 700; font-size: 15.5px; }
+.wait-vid-txt small { font-weight: 500; font-size: 12.5px; opacity: 0.8; }
+.wait-vid--client { background: var(--orange); color: #fff; }
+.wait-vid--client .wait-vid-play { background: #fff; color: var(--orange); }
+.wait-vid--client:hover { background: #e06d10; }
+.wait-vid--pro { background: var(--navy); color: #fbf6ed; }
+.wait-vid--pro .wait-vid-play { background: var(--orange); color: #fff; }
+.wait-vid--pro:hover { background: #12293f; }
+.wait-mail { font-family: var(--font-title); font-weight: 500; font-size: 14px; color: var(--navy); opacity: 0.85; }
+.wait-mail a { color: var(--navy); font-weight: 700; border-bottom: 2px solid rgba(240, 121, 24, 0.55); }
+.wait-mail a:hover { border-bottom-color: var(--orange); }
+
+/* Lecteur */
+.wait-player {
+  width: min(1100px, 94vw); max-width: none; padding: 0; border: 0;
+  border-radius: 18px; background: #0d1d2e; overflow: visible;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+.wait-player::backdrop { background: rgba(13, 29, 46, 0.78); backdrop-filter: blur(4px); }
+.wait-player video { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 80vh; border-radius: 18px; background: #0d1d2e; }
+.wait-player-close {
+  position: absolute; top: -18px; right: -18px; width: 40px; height: 40px;
+  border: 0; border-radius: 50%; background: var(--orange); color: #fff; cursor: pointer;
+  display: grid; place-items: center; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.wait-player-close svg { width: 16px; height: 16px; }
+.wait-player-close:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+@media (max-width: 600px) {
+  .wait-player-close { top: -52px; right: 0; }
+  .wait-vid { width: 100%; max-width: 320px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .wait-ring, .wait-sat img { animation: none; }
 }
@@ -136,9 +186,34 @@
     </div>
   </div>
   <div class="wait-contact">
-    <p class="wait-ask">Vous êtes artisan&nbsp;?</p>
-    <a class="wait-cta" href="mailto:luka.chappuis@cordeau.pro,jules.michel@cordeau.pro?subject=Cordeau%20%E2%80%94%20Contact%20artisan">Contactez-nous</a>
+    <p class="wait-ask">Découvrez Cordeau en 40&nbsp;secondes</p>
+    <div class="wait-videos">
+      <button type="button" class="wait-vid wait-vid--client" data-video="videos/cordeau-particuliers.mp4" data-poster="videos/particuliers.jpg"><span class="wait-vid-play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0v14l12-7z" fill="currentColor"/></svg></span><span class="wait-vid-txt"><b>Particuliers</b><small>Trouver un artisan</small></span></button>
+      <button type="button" class="wait-vid wait-vid--pro" data-video="videos/cordeau-artisans.mp4" data-poster="videos/artisans.jpg"><span class="wait-vid-play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0v14l12-7z" fill="currentColor"/></svg></span><span class="wait-vid-txt"><b>Artisans</b><small>Rejoindre Cordeau</small></span></button>
+    </div>
+    <p class="wait-mail">Vous êtes artisan&nbsp;? <a href="mailto:luka.chappuis@cordeau.pro,jules.michel@cordeau.pro?subject=Cordeau%20%E2%80%94%20Contact%20artisan">Contactez-nous</a></p>
   </div>
+  <dialog class="wait-player" aria-label="Vidéo de présentation">
+    <button type="button" class="wait-player-close" aria-label="Fermer la vidéo"><svg viewBox="0 0 16 16"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <video controls playsinline preload="none"></video>
+  </dialog>
 </main>
+<script>
+(function () {
+  var dlg = document.querySelector(".wait-player"), vid = dlg.querySelector("video");
+  if (!dlg.showModal) { dlg.setAttribute("hidden", ""); }
+  document.querySelectorAll(".wait-vid").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (!dlg.showModal) { window.location.href = b.dataset.video; return; }
+      vid.poster = b.dataset.poster; vid.src = b.dataset.video;
+      dlg.showModal(); var p = vid.play(); if (p && p.catch) p.catch(function () {});
+    });
+  });
+  function close() { dlg.close(); }
+  dlg.querySelector(".wait-player-close").addEventListener("click", close);
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) close(); });
+  dlg.addEventListener("close", function () { vid.pause(); vid.removeAttribute("src"); vid.load(); });
+})();
+</script>
 </body>
 </html>
