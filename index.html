@@ -113,6 +113,26 @@
 .wait-cta:hover { background: #12293f; }
 .wait-cta:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 
+/* Bientôt disponible */
+.wait-soon {
+  margin-top: calc(var(--size) * 0.035);
+  display: inline-flex; align-items: center; gap: 0.6em;
+  padding: 0.55em 1.1em 0.55em 0.9em; border-radius: 999px;
+  background: var(--navy); color: #fbf6ed;
+  font-family: var(--font-title); font-weight: 600;
+  font-size: clamp(11.5px, calc(var(--size) * 0.024), 15px); white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(26, 58, 92, 0.18);
+}
+.wait-soon i { width: 0.6em; height: 0.6em; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 0 rgba(240, 121, 24, 0.6); animation: wait-pulse 2s ease-out infinite; }
+.wait-soon b { color: var(--orange); font-weight: 700; }
+@keyframes wait-pulse { 70% { box-shadow: 0 0 0 0.55em rgba(240, 121, 24, 0); } 100% { box-shadow: 0 0 0 0 rgba(240, 121, 24, 0); } }
+
+.wait-soon--below { display: none; margin: 0 0 6px; font-size: 13px; }
+@media (max-width: 600px) {
+  .wait-soon--orbit { display: none; }
+  .wait-soon--below { display: inline-flex; }
+}
+
 /* Vidéos de présentation */
 .wait-videos { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .wait-vid {
@@ -163,7 +183,7 @@
   .wait-vid { width: 100%; max-width: 320px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .wait-ring, .wait-sat img { animation: none; }
+  .wait-ring, .wait-sat img, .wait-soon i { animation: none; }
 }
 
 </style>
@@ -183,9 +203,11 @@
         <svg viewBox="0 0 52 30" aria-hidden="true"><line x1="7" y1="15" x2="45" y2="15" stroke="#1A3A5C" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="15" r="5.5" fill="#1A3A5C"/><circle cx="45" cy="15" r="5.5" fill="#1A3A5C"/></svg>
         <h1>Cordeau<span>.</span></h1>
       </div>
+      <p class="wait-soon wait-soon--orbit"><i aria-hidden="true"></i>Bientôt disponible · Lancement <b>2027</b></p>
     </div>
   </div>
   <div class="wait-contact">
+    <p aria-hidden="true" class="wait-soon wait-soon--below"><i aria-hidden="true"></i>Bientôt disponible · Lancement <b>2027</b></p>
     <p class="wait-ask">Découvrez Cordeau en 40&nbsp;secondes</p>
     <div class="wait-videos">
       <button type="button" class="wait-vid wait-vid--client" data-video="videos/cordeau-particuliers.mp4" data-poster="videos/particuliers.jpg"><span class="wait-vid-play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0v14l12-7z" fill="currentColor"/></svg></span><span class="wait-vid-txt"><b>Particuliers</b><small>Trouver un artisan</small></span></button>
