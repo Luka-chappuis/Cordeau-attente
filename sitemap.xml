@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://cordeau.pro/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://cordeau.pro/videos/particuliers.jpg</video:thumbnail_loc>
+      <video:title>Cordeau pour les particuliers : trouver un artisan à Annecy</video:title>
+      <video:description>Comment trouver un artisan vérifié près d'Annecy avec Cordeau : prise de rendez-vous, plusieurs devis et SOS en cas d'urgence.</video:description>
+      <video:content_loc>https://cordeau.pro/videos/cordeau-particuliers.mp4</video:content_loc>
+      <video:duration>39</video:duration>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://cordeau.pro/videos/artisans.jpg</video:thumbnail_loc>
+      <video:title>Cordeau pour les artisans : recevoir des demandes de clients</video:title>
+      <video:description>Artisans du bassin annécien : recevez des demandes de devis et de rendez-vous et gérez-les depuis votre espace professionnel Cordeau.</video:description>
+      <video:content_loc>https://cordeau.pro/videos/cordeau-artisans.mp4</video:content_loc>
+      <video:duration>35</video:duration>
+    </video:video>
+  </url>
+</urlset>
